@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Beverage :isIced="beverageStore.currentTemp === 'Cold'" />
+    <Beverage :isIced="beverageStore.currentTemp === 'Cold'":base="beverageStore.currentBase" :creamer="beverageStore.currentCreamer" :syrup="beverageStore.currentSyrup" />
     <ul>
       <li>
         <template v-for="temp in beverageStore.temps" :key="temp">
@@ -13,6 +13,48 @@
               v-model="beverageStore.currentTemp"
             />
             {{ temp }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <template v-for="base in beverageStore.bases" :key="base">
+          <label>
+            <input
+              type="radio"
+              name="base"
+              :id="`r${base.id}`"
+              :value="base"
+              v-model="beverageStore.currentBase"
+            />
+            {{ base.name }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <template v-for="creamer in beverageStore.creamers" :key="creamer">
+          <label>
+            <input
+              type="radio"
+              name="cream"
+              :id="`r${creamer.id}`"
+              :value="creamer"
+              v-model="beverageStore.currentCreamer"
+            />
+            {{ creamer.name }}
+          </label>
+        </template>
+      </li>
+      <li>
+        <template v-for="syrup in beverageStore.syrups" :key="syrup">
+          <label>
+            <input
+              type="radio"
+              name="syrup"
+              :id="`r${syrup.id}`"
+              :value="syrup"
+              v-model="beverageStore.currentSyrup"
+            />
+            {{ syrup.name }}
           </label>
         </template>
       </li>
