@@ -1,9 +1,17 @@
 <template>
-  <div class="baseBeverage"></div>
+  <div class="baseBeverage" :style="{backgroundColor: base.color}"></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
 
+
+type Props = {
+  base: any;
+}
+defineProps<Props>();
+
+
+</script>
 <style scoped>
 .baseBeverage {
   position: relative;
