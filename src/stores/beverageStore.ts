@@ -47,5 +47,5 @@ export const useBeverageStore = defineStore("BeverageStore", {
       this.currentSyrup = recipe!.syrup;
     },
   },
-  persist: false,
+  persist: true,
 });
